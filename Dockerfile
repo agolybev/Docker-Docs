@@ -23,6 +23,11 @@ RUN yum -y install \
     sed 's,\(listen.\+:\)\([0-9]\+\)\(.*;\),'"\18888\3"',' \
         -i /etc/nginx/conf.d/ds.conf && \
     sed '/error_log.*/d' -i /etc/nginx/includes/ds-common.conf && \
+    sed 's/5\.5\.3-39/5.5.3-93/' \
+        -i /etc/nginx/includes/ds-docservice.conf && \
+    sed 's/5\.5\.3-39/5.5.3-93/' \
+        -i /var/www/onlyoffice/documentserver/sdkjs/common/AllFonts.js && \
+    chown ds:ds /var/www/onlyoffice/documentserver/sdkjs/common/AllFonts.js && \
     chmod 755 /var/log/nginx && \
     ln -sf /dev/stderr /var/log/nginx/error.log && \
     yum clean all && \
