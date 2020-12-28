@@ -3,7 +3,7 @@ services:
   proxy:
     container_name: proxy
     build:
-      context: .
+      context: ./
       target: proxy
     image: ${COMPANY_NAME}/${PRODUCT_NAME}-proxy${PRODUCT_EDITION}:${PRODUCT_VERSION}
     environment:
@@ -19,7 +19,7 @@ services:
        
   docservice:
     build:
-      context: .
+      context: ./
       target: docservice
     image: ${COMPANY_NAME}/${PRODUCT_NAME}-docservice${PRODUCT_EDITION}:${PRODUCT_VERSION}
     container_name: docservice
@@ -46,7 +46,7 @@ services:
 
   converter:
     build:
-      context: .
+      context: ./
       target: converter
     image: ${COMPANY_NAME}/${PRODUCT_NAME}-converter${PRODUCT_EDITION}:${PRODUCT_VERSION}
     container_name: converter
@@ -71,7 +71,7 @@ services:
 
   spellchecker:
     build:
-      context: .
+      context: ./
       target: spellchecker
     image: ${COMPANY_NAME}/${PRODUCT_NAME}-spellchecker${PRODUCT_EDITION}:${PRODUCT_VERSION}
     container_name: spellchecker
@@ -98,7 +98,7 @@ services:
 
   metrics:
     build:
-      context: .
+      context: ./
       target: metrics
     container_name: metrics
     expose:
@@ -107,7 +107,7 @@ services:
 
   example:
     build:
-      context: .
+      context: ./
       target: example
     image: ${COMPANY_NAME}/${PRODUCT_NAME}-example${PRODUCT_EDITION}:${PRODUCT_VERSION}
     container_name: example
